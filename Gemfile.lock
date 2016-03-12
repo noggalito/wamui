@@ -84,6 +84,7 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
+    nested_form (0.3.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     pg (0.18.4)
@@ -175,6 +176,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   less-rails-semantic_ui (~> 2.1)
+  nested_form (~> 0.3)
   pg
   rails (= 4.2.5.2)
   rails_12factor

@@ -1,0 +1,26 @@
+.field.one.wide
+  = f.number_field :cantidad,
+                   placeholder: "1"
+
+.field.one.wide
+  = f.select :unidad,
+             f.object.class::UNIDADES,
+             { include_blank: true },
+             class: "ui fluid dropdown"
+
+.field.five.wide
+  = f.text_field :detalle,
+                 placeholder: "Detalle"
+
+.field.four.wide
+  = f.text_field :proveedor,
+                 placeholder: "Proveedor"
+
+.field.four.wide
+  = f.text_area :observaciones,
+                rows: 2,
+                placeholder: "Observaciones"
+
+.field.one.wide
+  = f.link_to_remove class: "ui compact icon red button" do
+    i.remove.icon

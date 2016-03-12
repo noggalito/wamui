@@ -1,5 +1,5 @@
-= form_for @order,
-           html: { class: "ui form" } do |f|
+= nested_form_for @order,
+                  html: { class: "ui form" } do |f|
   .ui.grid
     .column.eight.wide.computer.sixteen.wide.mobile
       .field
@@ -56,6 +56,8 @@
                       placeholder: "Notas adicionales"
 
     .column.eight.wide.computer.only
+
+    = render "order_items_form", f: f
 
     .column.sixteen.wide.center.aligned
       = f.submit "Ordenar",

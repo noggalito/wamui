@@ -1,0 +1,25 @@
+.order-items-form.column.sixteen.wide
+  p.field.products-label
+    label for="productos" Productos
+
+  .ui.grid.order-items-form--header
+    .field.one.wide.align.cantidad
+      label Cant.
+    .field.one.wide.align
+      label Unidad
+    .field.five.wide
+      label Detalle
+    .field.four.wide
+      label Proveedor
+    .field.four.wide
+      label Observaciones
+
+  .ui.grid
+    = f.fields_for :order_items do |order_item_form|
+      = render "order_items/form",
+               f: order_item_form
+
+    = f.link_to_add :order_items do
+      .ui.compact.labeled.icon.button
+        i.icon.plus
+        | Agregar ítem

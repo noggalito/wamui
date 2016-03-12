@@ -5,4 +5,11 @@ class Order < ActiveRecord::Base
             :telefono,
             :direccion,
             presence: true
+
+  accepts_nested_attributes_for(
+    :order_items,
+    reject_if: proc do |attributes|
+      attributes['detalle'].blank?
+    end
+  )
 end

@@ -31,6 +31,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'slim', '~> 3.0'
+gem 'nested_form', '~> 0.3'
 
 # semantic UI
 gem 'less-rails-semantic_ui', '~> 2.1'

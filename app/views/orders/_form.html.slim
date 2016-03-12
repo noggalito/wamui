@@ -1,0 +1,62 @@
+= form_for @order,
+           html: { class: "ui form" } do |f|
+  .ui.grid
+    .column.eight.wide.computer.sixteen.wide.mobile
+      .field
+        = f.label :nombres
+        = f.text_field :nombres,
+                       required: true,
+                       placeholder: "Nombres completos"
+
+    .column.eight.wide.computer.only
+
+    .column.eight.wide.computer.sixteen.wide.mobile
+      .field
+        = f.label :email
+        = f.email_field :email,
+                        required: true,
+                        placeholder: "usuario@email.com"
+
+    .column.eight.wide.computer.only
+
+    .column.eight.wide.computer.sixteen.wide.mobile
+      .field
+        = f.label :organizacion, "Organización"
+        = f.text_field :organizacion,
+                       placeholder: "Establecimiento (opcional)"
+
+    .column.eight.wide.computer.only
+
+    .column.eight.wide.computer.sixteen.wide.mobile
+      .field
+        = f.label :telefono, "Teléfono de contacto"
+        = f.telephone_field :telefono,
+                            placeholder: "(+593) 996631191"
+
+    .column.eight.wide.computer.only
+
+    .column.eight.wide.computer.sixteen.wide.mobile
+      .field
+        = f.label :direccion, "Dirección de entrega"
+        = f.telephone_field :direccion,
+                            required: true,
+                            placeholder: "Calle principal y secundaria"
+
+      .field
+        = f.telephone_field :direccion_2,
+                            placeholder: "Referencia o número de departamento"
+
+    .column.eight.wide.computer.only
+
+    .column.eight.wide.computer.sixteen.wide.mobile
+      .field
+        = f.label :observaciones
+        = f.text_area :observaciones,
+                      rows: 2,
+                      placeholder: "Notas adicionales"
+
+    .column.eight.wide.computer.only
+
+    .column.sixteen.wide.center.aligned
+      = f.submit "Ordenar",
+                 class: "ui big teal button"

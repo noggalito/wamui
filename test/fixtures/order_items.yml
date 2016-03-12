@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_id: 
+  cantidad: 1
+  detalle: MyString
+  unidad: 1
+  proveedor: MyString
+  observaciones: MyText
+
+two:
+  order_id: 
+  cantidad: 1
+  detalle: MyString
+  unidad: 1
+  proveedor: MyString
+  observaciones: MyText

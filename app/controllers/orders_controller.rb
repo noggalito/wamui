@@ -7,9 +7,10 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     if @order.save
-      redirect_to root_path,
-                  notice: "Orden creada"
+      flash[:success] = "Orden creada"
+      redirect_to root_path
     else
+      flash.now[:error] ="Ups, algo salió mal"
       render :new
     end
   end

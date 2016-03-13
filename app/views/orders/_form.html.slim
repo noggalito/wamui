@@ -1,5 +1,13 @@
 = nested_form_for @order,
-                  html: { class: "ui form" } do |f|
+                  html: { class: "ui form #{"error" if has_errors?}" } do |f|
+
+  - if has_errors?
+    .ui.error.message
+      .header Hubo un problema guardando la orden
+      ul
+        - f.object.errors.full_messages.each do |msg|
+          li = msg
+
   .ui.grid
     .column.eight.wide.computer.sixteen.wide.mobile
       .field

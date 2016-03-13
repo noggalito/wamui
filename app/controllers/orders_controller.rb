@@ -36,4 +36,9 @@ class OrdersController < ApplicationController
             ]
           )
   end
+
+  def has_errors?
+    @order.errors.any?
+  end
+  helper_method :has_errors?
 end

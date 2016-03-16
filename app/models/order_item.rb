@@ -6,8 +6,9 @@ class OrderItem < ActiveRecord::Base
   ).freeze
 
   belongs_to :order
-  validates :cantidad,
+  validates :unidad,
             :detalle,
+            :cantidad,
             :proveedor,
             presence: true
 end

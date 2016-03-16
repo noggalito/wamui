@@ -1,5 +1,6 @@
 class OrderItem < ActiveRecord::Base
   UNIDADES = %w(
+    unidades
     kg
     lt
   ).freeze

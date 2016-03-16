@@ -1,11 +1,12 @@
 .field.one.wide
   = f.number_field :cantidad,
-                   placeholder: "1"
+                   value: 1,
+                   required: true
 
-.field.one.wide
+.field.four.wide
   = f.select :unidad,
              f.object.class::UNIDADES,
-             { include_blank: true },
+             { include_blank: false },
              class: "ui fluid dropdown"
 
 .field.five.wide

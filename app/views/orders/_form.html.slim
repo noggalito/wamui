@@ -31,7 +31,8 @@
       .field
         = f.label :organizacion, "Organización"
         = f.text_field :organizacion,
-                       placeholder: "Establecimiento (opcional)"
+                       required: true,
+                       placeholder: "Establecimiento"
 
     .column.eight.wide.computer.only
 
@@ -39,7 +40,8 @@
       .field
         = f.label :telefono, "Teléfono de contacto"
         = f.telephone_field :telefono,
-                            placeholder: "(+593) 996631191"
+                            required: true,
+                            placeholder: "(099) 663-1191"
 
     .column.eight.wide.computer.only
 

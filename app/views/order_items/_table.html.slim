@@ -1,0 +1,20 @@
+.order-items-table.column.sixteen.wide
+  
+  h4 Productos:
+
+  table.ui.blue.table
+    thead
+      tr
+        th Cant.
+        th Unidad
+        th Detalle
+        th Proveedor
+        th Observaciones
+    tbody
+      - @order.order_items.each do |order_item|
+        tr
+          td =order_item.cantidad
+          td =order_item.unidad
+          td =order_item.detalle
+          td =order_item.proveedor
+          td =order_item.observaciones

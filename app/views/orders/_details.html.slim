@@ -1,0 +1,38 @@
+.ui.grid.centered
+  .column.eight.wide.computer.sixteen.wide.mobile
+    .ui.grid
+      .column.eight.wide.align
+        h4 Nombres:
+      .column.eight.wide.align
+        span =@order.nombres
+
+      .column.eight.wide.align
+        h4 Email:
+      .column.eight.wide.align
+        span =@order.email
+
+      .column.eight.wide.align
+        h4 Organización: 
+      .column.eight.wide.align
+        span =@order.organizacion
+
+      .column.eight.wide.align
+        h4 Teléfono de contacto: 
+      .column.eight.wide.align
+        span =@order.telefono
+
+      .column.eight.wide.align
+        h4 Dirección de entrega: 
+      .column.eight.wide.align
+        =@order.direccion
+
+        - if @order.direccion_2.present?
+          br =@order.direccion_2
+
+      - if @order.observaciones.present?
+        .column.eight.wide.align
+          h4 Observaciones: 
+        .column.eight.wide.align
+          span =@order.observaciones
+
+  =render "order_items/table" 

@@ -28,7 +28,7 @@ class Order < ActiveRecord::Base
   end
 
   def send_notifications
-    NotificationMailer.notification_supervisor(self).deliver_later
-    NotificationMailer.notification_client(self).deliver_later
+    NotificationMailer.notify_supervisor(self).deliver_later
+    NotificationMailer.notify_client(self).deliver_later
   end
 end

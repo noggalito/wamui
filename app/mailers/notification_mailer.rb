@@ -1,18 +1,17 @@
 class NotificationMailer < ActionMailer::Base
-  default from: "wamui@noggalito.com"
+  default from: "wamui@noggalito.com",
+          subject: "wamui - orden creada"
 
   layout 'mailer'
 
-  def notification_supervisor(order)
+  def notify_supervisor(order)
     @order = order
-    @message = "Proveedor, hay una nueva orden:"
     supervisors_emails = ENV["SUPERVISORS_EMAILS"]
-    mail(subject: "Notificación", to: supervisors_emails)
+    mail(to: supervisors_emails)
   end
 
-  def notification_client(order)
+  def notify_client(order)
     @order = order
-    @message = "Cliente, esta es la orden que acabas de crear:"
-    mail(subject: "Notificación", to: @order.email)
+    mail(to: @order.email)
   end
 end

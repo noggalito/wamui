@@ -1,9 +1,0 @@
-doctype html
-html
-  head
-    meta charset="utf-8"
-    meta content="text/html" http-equiv="Content-Type" 
-
-  body
-    p = @message
-    = link_to("Orden N°#{ @order.id }", order_url(@order.id))

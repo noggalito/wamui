@@ -1,38 +1,48 @@
-.ui.grid.centered
+.ui.grid
   .column.eight.wide.computer.sixteen.wide.mobile
     .ui.grid
-      .column.eight.wide.align
+      .column.eight.wide
+        h4 Fecha
+      .column.eight.wide
+        => time_tag(@order.created_at,
+                    l(@order.created_at, format: :short))
+        br
+        ' (hace
+        = time_ago_in_words @order.created_at
+        | )
+
+      .column.eight.wide
         h4 Nombres:
-      .column.eight.wide.align
+      .column.eight.wide
         span = @order.nombres
 
-      .column.eight.wide.align
+      .column.eight.wide
         h4 Email:
-      .column.eight.wide.align
+      .column.eight.wide
         span = @order.email
 
-      .column.eight.wide.align
-        h4 Organización: 
-      .column.eight.wide.align
+      .column.eight.wide
+        h4 Organización:
+      .column.eight.wide
         span = @order.organizacion
 
-      .column.eight.wide.align
-        h4 Teléfono de contacto: 
-      .column.eight.wide.align
+      .column.eight.wide
+        h4 Teléfono de contacto:
+      .column.eight.wide
         span = @order.telefono
 
-      .column.eight.wide.align
-        h4 Dirección de entrega: 
-      .column.eight.wide.align
+      .column.eight.wide
+        h4 Dirección de entrega:
+      .column.eight.wide
         = @order.direccion
 
         - if @order.direccion_2.present?
           br = @order.direccion_2
 
       - if @order.observaciones.present?
-        .column.eight.wide.align
-          h4 Observaciones: 
-        .column.eight.wide.align
+        .column.eight.wide
+          h4 Observaciones:
+        .column.eight.wide
           span = @order.observaciones
 
   = render "order_items/table"

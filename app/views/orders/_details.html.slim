@@ -19,7 +19,7 @@
       .column.eight.wide
         h4 Email:
       .column.eight.wide
-        span = @order.email
+        span = mail_to @order.email
 
       .column.eight.wide
         h4 Organización:
@@ -34,7 +34,7 @@
       .column.eight.wide
         h4 Dirección de entrega:
       .column.eight.wide
-        = @order.direccion
+        = link_to_address @order.direccion
 
         - if @order.direccion_2.present?
           br = @order.direccion_2

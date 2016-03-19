@@ -29,7 +29,9 @@
       .column.eight.wide
         h4 Teléfono de contacto:
       .column.eight.wide
-        span = @order.telefono
+        span
+          = link_to @order.telefono,
+                    "tel:#{@order.telefono}"
 
       .column.eight.wide
         h4 Dirección de entrega:

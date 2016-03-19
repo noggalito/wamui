@@ -38,9 +38,6 @@ gem 'less-rails-semantic_ui', '~> 2.1'
 gem 'autoprefixer-rails'
 gem 'therubyracer'
 
-# Preview email
-gem "letter_opener"
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -55,6 +52,9 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # Preview email
+  gem 'letter_opener'
 end
 
 group :production do

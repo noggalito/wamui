@@ -4,35 +4,35 @@
       .column.eight.wide.align
         h4 Nombres:
       .column.eight.wide.align
-        span =@order.nombres
+        span = @order.nombres
 
       .column.eight.wide.align
         h4 Email:
       .column.eight.wide.align
-        span =@order.email
+        span = @order.email
 
       .column.eight.wide.align
         h4 Organización: 
       .column.eight.wide.align
-        span =@order.organizacion
+        span = @order.organizacion
 
       .column.eight.wide.align
         h4 Teléfono de contacto: 
       .column.eight.wide.align
-        span =@order.telefono
+        span = @order.telefono
 
       .column.eight.wide.align
         h4 Dirección de entrega: 
       .column.eight.wide.align
-        =@order.direccion
+        = @order.direccion
 
         - if @order.direccion_2.present?
-          br =@order.direccion_2
+          br = @order.direccion_2
 
       - if @order.observaciones.present?
         .column.eight.wide.align
           h4 Observaciones: 
         .column.eight.wide.align
-          span =@order.observaciones
+          span = @order.observaciones
 
-  =render "order_items/table" 
+  = render "order_items/table"

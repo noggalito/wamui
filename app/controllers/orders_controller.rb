@@ -4,6 +4,10 @@ class OrdersController < ApplicationController
     @order.order_items.build
   end
 
+  def show
+    @order = Order.find(params[:id])
+  end
+
   def create
     @order = Order.new(order_params)
     if @order.save

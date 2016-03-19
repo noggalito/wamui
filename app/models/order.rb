@@ -1,5 +1,8 @@
 class Order < ActiveRecord::Base
   has_many :order_items
+
+  after_create :send_notifications
+
   validates :nombres,
             :email,
             :telefono,
@@ -22,5 +25,10 @@ class Order < ActiveRecord::Base
       :base,
       "Necesita tener al menos un producto"
     ) unless order_items.length > 0
+  end
+
+  def send_notifications
+    NotificationMailer.notify_supervisor(self).deliver_later
+    NotificationMailer.notify_client(self).deliver_later
   end
 end

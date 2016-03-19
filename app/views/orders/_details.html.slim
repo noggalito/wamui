@@ -2,7 +2,7 @@
   .column.eight.wide.computer.sixteen.wide.mobile
     .ui.grid
       .column.eight.wide
-        h4 Fecha
+        h4 Fecha:
       .column.eight.wide
         => time_tag(@order.created_at,
                     l(@order.created_at, format: :short))

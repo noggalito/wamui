@@ -19,7 +19,12 @@
       .column.eight.wide
         h4 Email:
       .column.eight.wide
-        span = mail_to @order.email
+        span
+          = link_to "*******",
+                    "#",
+                    class: "shadowed-email-placeholder"
+          .true-shadowed-email.hidden
+            = mail_to @order.email
 
       .column.eight.wide
         h4 Organización:

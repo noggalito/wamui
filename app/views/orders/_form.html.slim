@@ -47,6 +47,15 @@
 
     .column.eight.wide.computer.sixteen.wide.mobile
       .field
+        = f.label :cedula, "Cédula o RUC"
+        = f.text_field :cedula,
+                        required: true,
+                        placeholder: "1104332357"
+
+    .column.eight.wide.computer.only
+
+    .column.eight.wide.computer.sixteen.wide.mobile
+      .field
         = f.label :direccion, "Dirección de entrega"
         = f.telephone_field :direccion,
                             required: true,

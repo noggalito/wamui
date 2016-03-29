@@ -39,6 +39,11 @@
                     "tel:#{@order.telefono}"
 
       .column.eight.wide
+        h4 Cédula / RUC:
+      .column.eight.wide
+        span = @order.cedula
+
+      .column.eight.wide
         h4 Dirección de entrega:
       .column.eight.wide
         = link_to_address @order.direccion

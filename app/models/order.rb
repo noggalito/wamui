@@ -7,8 +7,11 @@ class Order < ActiveRecord::Base
             :email,
             :telefono,
             :direccion,
+            :cedula,
             presence: true
   validate :has_any_order_items!
+
+  validates_id :cedula
 
   accepts_nested_attributes_for(
     :order_items,

@@ -38,6 +38,9 @@ gem 'less-rails-semantic_ui', '~> 2.1'
 gem 'autoprefixer-rails'
 gem 'therubyracer'
 
+# Validate ID/RUC Ecuador
+gem 'id_ecuador'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

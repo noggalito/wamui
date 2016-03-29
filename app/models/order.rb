@@ -11,8 +11,6 @@ class Order < ActiveRecord::Base
             presence: true
   validate :has_any_order_items!
 
-  validates_id :cedula
-
   accepts_nested_attributes_for(
     :order_items,
     allow_destroy: true,

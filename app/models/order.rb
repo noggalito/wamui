@@ -7,6 +7,7 @@ class Order < ActiveRecord::Base
             :email,
             :telefono,
             :direccion,
+            :cedula,
             presence: true
   validate :has_any_order_items!
 

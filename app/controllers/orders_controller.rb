@@ -28,6 +28,7 @@ class OrdersController < ApplicationController
             :email,
             :organizacion,
             :telefono,
+            :cedula,
             :direccion,
             :direccion_2,
             :observaciones,

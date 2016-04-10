@@ -43,7 +43,6 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener
 
   config.action_mailer.default_url_options = {
-    host: Rails.application.secrets.host,
     port: 3000
   }
 

@@ -5,6 +5,7 @@ class Order < ActiveRecord::Base
     include Rails.application.routes.url_helpers
 
     def notify_slack
+      return if halt_notification?
       notifier.ping(
         message,
         icon_emoji: icon_emoji,
@@ -13,6 +14,10 @@ class Order < ActiveRecord::Base
     end
 
     private
+
+    def halt_notification?
+      Rails.env.development? && ENV["NOTIFY_SLACK"].blank?
+    end
 
     def message
       "Tenemos una nueva orden!"

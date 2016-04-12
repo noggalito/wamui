@@ -1,7 +1,10 @@
 class Order < ActiveRecord::Base
+  include SlackNotifications
+
   has_many :order_items
 
-  after_create :send_notifications
+  after_create :send_email_notifications
+  after_create :notify_slack
 
   validates :nombres,
             :email,
@@ -19,6 +22,10 @@ class Order < ActiveRecord::Base
     end
   )
 
+  def to_s
+    "Orden Nº#{id}"
+  end
+
   private
 
   def has_any_order_items!
@@ -28,7 +35,7 @@ class Order < ActiveRecord::Base
     ) unless order_items.length > 0
   end
 
-  def send_notifications
+  def send_email_notifications
     NotificationMailer.notify_supervisor(self).deliver_later
     NotificationMailer.notify_client(self).deliver_later
   end

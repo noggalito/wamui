@@ -1,0 +1,23 @@
+= form_for @subscriber,
+           html: { class: "ui form" } do |f|
+  .field.eight.wide
+    = f.label :email
+    = f.email_field :email,
+                    placeholder: "person@noggalito.com"
+
+  .field.eight.wide
+    = f.label :slack
+    = f.text_field :slack,
+                   placeholder: "nickname"
+
+  = f.submit class: "ui button primary"
+
+  - if f.object.persisted?
+    = link_to "Eliminar suscriptor",
+              wamui_subscriber_path(@subscriber),
+              method: :delete,
+              class: "ui button negative"
+
+  = link_to "Cancelar",
+            wamui_subscribers_path,
+            class: "ui button"

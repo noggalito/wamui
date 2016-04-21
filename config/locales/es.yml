@@ -1,6 +1,8 @@
 ---
 es:
   activerecord:
+    models:
+      wamui/subscriber: Suscriptor
     errors:
       messages:
         record_invalid: "La validación falló: %{errors}"

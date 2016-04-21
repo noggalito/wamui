@@ -20,7 +20,7 @@ class Order < ActiveRecord::Base
     end
 
     def message
-      "Tenemos una nueva orden!"
+      "Tenemos una nueva orden! #{slack_subscribers}"
     end
 
     def fallback
@@ -74,6 +74,11 @@ class Order < ActiveRecord::Base
 
     def default_url_options
       Rails.application.routes.default_url_options
+    end
+
+    def slack_subscribers
+      Wamui::Subscriber.slackers
+                       .join(" ")
     end
   end
 end

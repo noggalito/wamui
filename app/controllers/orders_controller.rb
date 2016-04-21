@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     if @order.save
       flash[:success] = "Orden creada"
-      redirect_to root_path
+      redirect_to action: :show, id: @order.id
     else
       flash.now[:error] ="Ups, algo salió mal"
       render :new

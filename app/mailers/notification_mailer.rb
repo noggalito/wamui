@@ -6,7 +6,9 @@ class NotificationMailer < ActionMailer::Base
 
   def notify_supervisor(order)
     @order = order
-    supervisors_emails = ENV["SUPERVISORS_EMAILS"]
+    supervisors_emails = Wamui::Subscriber.with_email
+                                          .pluck(:email)
+                                          .reject(&:blank?)
     mail(to: supervisors_emails)
   end
 

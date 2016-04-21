@@ -1,5 +1,10 @@
 module Wamui
   class SubscribersController < ApplicationController
+    http_basic_authenticate_with(
+      name: Rails.application.secrets.admin_username,
+      password: Rails.application.secrets.admin_password
+    ) unless Rails.env.development?
+
     before_action :find_subscriber,
                   only: [ :edit, :update, :destroy ]
 

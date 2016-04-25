@@ -8,6 +8,7 @@ class Order < ActiveRecord::Base
       return if halt_notification?
       notifier.ping(
         message,
+        link_names: "1",
         icon_emoji: icon_emoji,
         attachments: [ attachment ]
       )

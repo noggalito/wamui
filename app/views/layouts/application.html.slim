@@ -11,4 +11,6 @@ html
     = csrf_meta_tags
   body
     .ui.container
-      = yield
+      .ui.very.padded.piled.segment
+        = render "shared/flashes"
+        = yield

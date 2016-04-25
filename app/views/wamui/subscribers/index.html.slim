@@ -1,0 +1,20 @@
+h1 Suscriptores
+
+table.ui.very.basic.table
+  thead
+    tr
+      th email
+      th slack
+      th
+  tbody
+    - @subscribers.each do |subscriber|
+      tr
+        td = subscriber.email
+        td = subscriber.slack
+        td
+          = link_to "editar",
+                    edit_wamui_subscriber_path(subscriber)
+
+= link_to "Nuevo",
+          new_wamui_subscriber_path,
+          class: "ui button"

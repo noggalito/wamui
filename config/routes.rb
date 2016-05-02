@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :wamui do
     resources :subscribers
     resources :users, only: :index
+    resources :orders, only: :index
     root to: "subscribers#index"
   end
   root to: "orders#new"

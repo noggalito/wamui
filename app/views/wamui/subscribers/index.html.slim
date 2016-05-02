@@ -7,7 +7,10 @@ table.ui.very.basic.table
   tbody
     - @subscribers.each do |subscriber|
       tr
-        td = subscriber.email
+        td
+          = image_tag subscriber.image_url,
+                      class: "ui avatar image"
+          span = subscriber.email
         td = subscriber.slack
         td
           = link_to "editar",

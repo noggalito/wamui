@@ -9,6 +9,10 @@ module Wamui
     scope :with_slack, -> { where.not(slack: nil) }
     scope :with_email, -> { where.not(email: nil) }
 
+    def image_url
+      Gravatar.new(email).image_url
+    end
+
     private
 
     def validate_email_or_slack

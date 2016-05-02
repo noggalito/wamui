@@ -14,10 +14,19 @@ table.ui.very.basic.table
     - @subscribers.each do |subscriber|
       tr
         td
-          = image_tag subscriber.image_url,
-                      class: "ui avatar image"
-          span = subscriber.email
-        td = subscriber.slack
+          - if subscriber.email.present?
+            = image_tag subscriber.image_url,
+                        class: "ui avatar image"
+            span = subscriber.email
+          - else
+           ' -
+
+        td
+          - if subscriber.slack.present?
+            = subscriber.slack
+          - else
+            ' -
+
         td
           = link_to "editar",
                     edit_wamui_subscriber_path(subscriber)

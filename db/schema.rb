@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502041241) do
+ActiveRecord::Schema.define(version: 20160502192937) do
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "order_id",      null: false
@@ -55,8 +55,10 @@ ActiveRecord::Schema.define(version: 20160502041241) do
     t.text     "credentials"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.boolean  "admin"
   end
 
+  add_index "users", ["admin"], name: "index_users_on_admin"
   add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid"
 
   create_table "wamui_subscribers", force: :cascade do |t|

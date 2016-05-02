@@ -1,6 +1,7 @@
 class Order < ActiveRecord::Base
   include SlackNotifications
 
+  belongs_to :user
   has_many :order_items
 
   after_create :notify_order!

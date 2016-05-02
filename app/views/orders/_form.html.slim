@@ -9,6 +9,12 @@
           li = msg
 
   .ui.grid
+
+    .column.eight.wide.computer.sixteen.wide.mobile
+      = render "login_notice" unless user_signed_in?
+
+    .column.eight.wide.computer.only
+
     .column.eight.wide.computer.sixteen.wide.mobile
       .field
         = f.label :nombres

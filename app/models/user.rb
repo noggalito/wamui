@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   devise :trackable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  has_many :orders
+  has_many :orders, ->{ order(id: :asc) }
 
   serialize :info, JSON
   serialize :credentials, JSON

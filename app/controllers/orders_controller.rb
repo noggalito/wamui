@@ -2,6 +2,10 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @order.order_items.build
+    if user_signed_in?
+      @order.build_from_current_user!(current_user)
+      @order.build_from_last_order_from!(current_user)
+    end
   end
 
   def show
@@ -10,6 +14,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @order.user = current_user if user_signed_in?
     if @order.save
       flash[:success] = "Orden creada"
       redirect_to action: :show, id: @order.id

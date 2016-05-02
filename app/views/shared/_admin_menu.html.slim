@@ -1,0 +1,7 @@
+.ui.secondary.pointing.menu
+  = link_to "Suscriptores",
+            wamui_subscribers_path,
+            class: "item #{'active' if controller_name == 'subscribers'}"
+  = link_to "Usuarios",
+            wamui_users_path,
+            class: "item #{'active' if controller_name == 'users'}"

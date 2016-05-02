@@ -1,0 +1,20 @@
+table.ui.very.basic.table
+  thead
+    tr
+      th nombre
+      th email
+      th proveedor
+      th órdenes
+  tbody
+    - @users.each do |user|
+      tr
+        td
+          = image_tag user.info["image"],
+                      class: "ui avatar image"
+          span = user.name
+        td = mail_to user.info["email"]
+        td
+          = link_to "facebook",
+                    "http://facebook.com/#{user.uid}",
+                    target: "_blank"
+        td = user.orders.count

@@ -6,5 +6,11 @@ module Users
       flash[:success] = "Hola #{@user}!"
       sign_in_and_redirect @user, event: :authentication
     end
+
+    private
+
+    def new_session_path(scope)
+      root_path
+    end
   end
 end

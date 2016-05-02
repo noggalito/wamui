@@ -1,7 +1,14 @@
-h2.ui.dividing.header
-  i.icon.add.to.cart
-  .content
-    | Ordenar
-    .sub.header Hacer un nuevo pedido
+.ui.dividing.header
+  .ui.clearing
+    .ui.right.floated.right.aligned.header
+      .content
+        .sub.header
+          = render "shared/session"
+
+  h2.ui.header
+    i.icon.add.to.cart
+    .content
+      | Ordenar
+      .sub.header Hacer un nuevo pedido
 
 = render "form"

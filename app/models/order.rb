@@ -1,6 +1,7 @@
 class Order < ActiveRecord::Base
   include SlackNotifications
 
+  belongs_to :user
   has_many :order_items
 
   after_create :notify_order!
@@ -23,6 +24,36 @@ class Order < ActiveRecord::Base
 
   def to_s
     "Orden Nº#{id}"
+  end
+
+  ##
+  # assign given user's last order's
+  # info
+  def build_from_last_order_from!(user)
+    last_order = user.orders.last
+    return if last_order.blank?
+    [ :nombres,
+      :email,
+      :telefono,
+      :direccion,
+      :direccion_2,
+      :cedula,
+      :observaciones,
+      :organizacion
+    ].each do |field|
+      send(
+        "#{field}=",
+        last_order.send(field)
+      )
+    end
+  end
+
+  ##
+  # assign given user's known attributes
+  # to order info
+  def build_from_current_user!(user)
+    self.nombres = user.name
+    self.email = user.info["email"]
   end
 
   private

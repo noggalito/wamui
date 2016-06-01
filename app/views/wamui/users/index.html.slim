@@ -1,0 +1,36 @@
+table.ui.very.basic.table
+  thead
+    tr
+      th nombre
+      th
+      th email
+      th proveedor
+      th órdenes
+  tbody
+    - @users.each do |user|
+      tr
+        td
+          = image_tag user.info["image"],
+                      class: "ui avatar image"
+          span = user.name
+
+        td
+          - if user.admin?
+            - disabled = user == current_user
+            = link_to "administrador",
+                      admin_wamui_user_path(user),
+                      class: "ui mini green button #{'disabled' if disabled}",
+                      method: :post,
+                      disabled: disabled
+          - else
+            = link_to "usuario normal",
+                      admin_wamui_user_path(user),
+                      class: "ui mini button",
+                      method: :post
+
+        td = mail_to user.info["email"]
+        td
+          = link_to "facebook",
+                    "http://facebook.com/#{user.uid}",
+                    target: "_blank"
+        td = user.orders.count

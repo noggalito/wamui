@@ -1,0 +1,12 @@
+- if user_signed_in?
+  p
+    ' hola,
+    = current_user
+  p
+    = link_to destroy_user_session_path do
+      ' cerrar sesión
+      i.sign.out.icon
+- else
+  = link_to user_omniauth_authorize_path(:facebook) do
+    ' autentificarme
+    i.facebook.icon.square

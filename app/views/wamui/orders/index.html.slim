@@ -1,0 +1,19 @@
+table.ui.very.basic.table
+  thead
+    tr
+      th número
+      th ruc
+      th nombres
+      th email
+      th teléfono
+  tbody
+    - @orders.each do |order|
+      tr
+        td
+          = link_to "Nº #{order.id}", order
+        td = order.cedula
+        td
+          div = order.nombres
+          div = order.organizacion
+        td = mail_to order.email
+        td = link_to order.telefono, "tel:#{order.telefono}"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421022048) do
+ActiveRecord::Schema.define(version: 20160502192937) do
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "order_id",      null: false
@@ -37,7 +37,29 @@ ActiveRecord::Schema.define(version: 20160421022048) do
     t.datetime "updated_at",    null: false
     t.string   "direccion_2"
     t.string   "cedula"
+    t.integer  "user_id"
   end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
+
+  create_table "users", force: :cascade do |t|
+    t.integer  "sign_in_count",      default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.text     "info"
+    t.text     "credentials"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "admin"
+  end
+
+  add_index "users", ["admin"], name: "index_users_on_admin"
+  add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid"
 
   create_table "wamui_subscribers", force: :cascade do |t|
     t.string   "email"

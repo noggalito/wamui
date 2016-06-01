@@ -1,4 +1,8 @@
-h1 Suscriptores
+.ui.segment
+  p
+    em
+      ' aka
+    ' personas que serán notificadas de nuevas órdenes
 
 table.ui.very.basic.table
   thead
@@ -9,8 +13,20 @@ table.ui.very.basic.table
   tbody
     - @subscribers.each do |subscriber|
       tr
-        td = subscriber.email
-        td = subscriber.slack
+        td
+          - if subscriber.email.present?
+            = image_tag subscriber.image_url,
+                        class: "ui avatar image"
+            span = subscriber.email
+          - else
+           ' -
+
+        td
+          - if subscriber.slack.present?
+            = subscriber.slack
+          - else
+            ' -
+
         td
           = link_to "editar",
                     edit_wamui_subscriber_path(subscriber)

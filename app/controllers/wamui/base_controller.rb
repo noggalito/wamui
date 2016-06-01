@@ -2,9 +2,16 @@ module Wamui
   class BaseController< ApplicationController
     layout "admin"
 
-    http_basic_authenticate_with(
-      name: Rails.application.secrets.admin_username,
-      password: Rails.application.secrets.admin_password
-    ) unless Rails.env.development?
+    before_action :authenticate_user!
+    before_action :require_admin!
+
+    private
+
+    def require_admin!
+      unless current_user.admin?
+        flash[:error] = "necesitas permisos de administración"
+        redirect_to(root_path)
+      end
+    end
   end
 end

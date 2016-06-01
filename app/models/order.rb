@@ -3,8 +3,7 @@ class Order < ActiveRecord::Base
 
   has_many :order_items
 
-  after_create :send_email_notifications
-  after_create :notify_slack
+  after_create :notify_order!
 
   validates :nombres,
             :email,
@@ -38,5 +37,9 @@ class Order < ActiveRecord::Base
   def send_email_notifications
     NotificationMailer.notify_supervisor(self).deliver_later
     NotificationMailer.notify_client(self).deliver_later
+  end
+
+  def notify_order!
+    NotifyOrderJob.perform_async(self)
   end
 end

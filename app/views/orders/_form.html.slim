@@ -63,13 +63,13 @@
     .column.eight.wide.computer.sixteen.wide.mobile
       .field
         = f.label :direccion, "Dirección de entrega"
-        = f.telephone_field :direccion,
-                            required: true,
-                            placeholder: "Calle principal y secundaria"
+        = f.text_field :direccion,
+                       required: true,
+                       placeholder: "Calle principal y secundaria"
 
       .field
-        = f.telephone_field :direccion_2,
-                            placeholder: "Referencia o número de departamento"
+        = f.text_field :direccion_2,
+                       placeholder: "Referencia o número de departamento"
 
     .column.eight.wide.computer.only
 

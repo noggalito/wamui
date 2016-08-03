@@ -1,5 +1,6 @@
-.field.one.wide
+.field.one.wide.qty-wrapper
   = f.number_field :cantidad,
+                   placeholder: "Cantidad",
                    value: 1,
                    required: true
 
@@ -25,3 +26,4 @@
 .field.one.wide
   = f.link_to_remove class: "ui compact icon red button" do
     i.remove.icon
+    span.xs-only Eliminar ítem
